@@ -1,0 +1,611 @@
+/* =========================================================
+   Deutsche Telekom Modern Stylesheet
+   Reproducing Reference Image 1 (Step 1) & Image 2 (Step 2)
+   ========================================================= */
+
+:root {
+    --telekom-magenta: #e20074;
+    --telekom-magenta-hover: #c70066;
+    --telekom-magenta-active: #ad0059;
+    --telekom-text: #191919;
+    --telekom-text-muted: #595959;
+    --telekom-link: #0056b3;
+    --telekom-link-hover: #004085;
+    --telekom-border: #cccccc;
+    --telekom-border-focus: #e20074;
+    --telekom-bg-card: #ffffff;
+    --telekom-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.telekom-body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: var(--telekom-font);
+    color: var(--telekom-text);
+    background-color: #43393f;
+    background-image:
+        radial-gradient(ellipse at 35% 40%, rgba(108, 82, 94, 0.55) 0%, rgba(72, 60, 68, 0.45) 40%, transparent 75%),
+        radial-gradient(ellipse at 78% 30%, rgba(85, 96, 100, 0.45) 0%, rgba(55, 65, 70, 0.35) 45%, transparent 70%),
+        linear-gradient(135deg, #443840 0%, #57464e 28%, #4a4a50 58%, #3a4244 88%, #2e3537 100%);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.telekom-body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.22) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Telekom Hanging Magenta Badge */
+.telekom-badge-container {
+    position: fixed;
+    top: 0;
+    left: 80px;
+    z-index: 100;
+}
+
+.telekom-badge {
+    width: 72px;
+    height: 82px;
+    background-color: var(--telekom-magenta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+.telekom-badge svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Container & Card */
+.telekom-container {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 90px 24px 40px;
+    box-sizing: border-box;
+}
+
+.telekom-card {
+    background-color: var(--telekom-bg-card);
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    padding: 32px 36px 36px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.24), 0 1px 4px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    position: relative;
+    animation: cardFadeIn 0.3s ease-out;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.telekom-step {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.telekom-step.hidden {
+    display: none !important;
+}
+
+.card-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    min-height: 28px;
+}
+
+.card-header-bar.right-only {
+    justify-content: flex-end;
+}
+
+.user-info-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 6px;
+    border-radius: 20px;
+    transition: background-color 0.15s;
+    max-width: calc(100% - 36px);
+}
+
+.user-info-pill:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #555b62;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-avatar-circle svg {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+}
+
+.user-email-text {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #191919;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdown-caret-icon {
+    width: 8px;
+    height: 6px;
+    fill: #191919;
+    margin-left: 2px;
+    flex-shrink: 0;
+}
+
+.help-icon-btn {
+    background: none;
+    border: none;
+    padding: 2px;
+    margin: 0;
+    cursor: pointer;
+    color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s, transform 0.15s;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.help-icon-btn:hover {
+    color: var(--telekom-magenta);
+    transform: scale(1.06);
+}
+
+.help-icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.telekom-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 22px 0;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+}
+
+.telekom-input-group {
+    position: relative;
+    width: 100%;
+}
+
+.telekom-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 1px solid var(--telekom-border);
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 0 12px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.telekom-input-container:focus-within {
+    border-color: var(--telekom-border-focus);
+    box-shadow: 0 0 0 1px var(--telekom-border-focus);
+}
+
+.telekom-input-field {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: #191919;
+    background: transparent;
+    padding: 0;
+}
+
+.telekom-input-field::placeholder {
+    color: #767676;
+    font-weight: 400;
+}
+
+.input-action-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    margin-left: 6px;
+    cursor: pointer;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.input-action-btn:hover {
+    color: var(--telekom-magenta);
+}
+
+.input-action-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.telekom-link-row {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.telekom-text-link {
+    color: var(--telekom-link);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 400;
+    transition: color 0.15s;
+}
+
+.telekom-text-link:hover {
+    color: var(--telekom-link-hover);
+    text-decoration: underline;
+}
+
+.telekom-switch-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    user-select: none;
+}
+
+.telekom-switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.telekom-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.telekom-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--telekom-magenta);
+    border-radius: 22px;
+    transition: background-color 0.2s;
+}
+
+.telekom-switch-slider::before {
+    position: absolute;
+    content: "|";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--telekom-magenta);
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s, color 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+.telekom-switch input:not(:checked)+.telekom-switch-slider {
+    background-color: #b0b0b0;
+}
+
+.telekom-switch input:not(:checked)+.telekom-switch-slider::before {
+    content: "O";
+    font-size: 9px;
+    color: #757575;
+    transform: translateX(16px);
+}
+
+.telekom-switch input:checked+.telekom-switch-slider {
+    background-color: var(--telekom-magenta);
+}
+
+.telekom-switch input:checked+.telekom-switch-slider::before {
+    transform: translateX(0);
+}
+
+.telekom-switch-label {
+    font-size: 14px;
+    color: #191919;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.inline-help-icon {
+    background: none;
+    border: none;
+    padding: 2px;
+    margin: 0;
+    cursor: pointer;
+    color: #383838;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.15s;
+}
+
+.inline-help-icon:hover {
+    color: var(--telekom-magenta);
+}
+
+.inline-help-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.telekom-btn-primary {
+    width: 100%;
+    height: 46px;
+    background-color: var(--telekom-magenta);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background-color 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.telekom-btn-primary:hover {
+    background-color: var(--telekom-magenta-hover);
+    box-shadow: 0 2px 8px rgba(226, 0, 116, 0.35);
+}
+
+.telekom-btn-primary:active {
+    background-color: var(--telekom-magenta-active);
+}
+
+.telekom-btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.telekom-btn-secondary {
+    width: 100%;
+    height: 46px;
+    background-color: #ffffff;
+    color: #191919;
+    border: 1px solid #767676;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.telekom-btn-secondary:hover {
+    background-color: #f7f7f7;
+    border-color: #4a4a4a;
+}
+
+.telekom-back-link-row {
+    margin-top: 22px;
+    text-align: left;
+}
+
+.telekom-back-link {
+    color: var(--telekom-link);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.telekom-back-link:hover {
+    text-decoration: underline;
+    color: var(--telekom-link-hover);
+}
+
+.telekom-register-link-row {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.demo-notice {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: #f0f7ff;
+    color: #004085;
+    border: 1px solid #b8daff;
+    display: none;
+    text-align: center;
+}
+
+.telekom-footer {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 24px 80px 28px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 12px;
+}
+
+.telekom-footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.telekom-footer-copy {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.telekom-footer-version {
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.telekom-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.telekom-footer-right a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.15s;
+}
+
+.telekom-footer-right a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .telekom-badge-container {
+        left: 24px;
+    }
+
+    .telekom-badge {
+        width: 60px;
+        height: 68px;
+    }
+
+    .telekom-badge svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .telekom-container {
+        padding: 85px 16px 30px;
+    }
+
+    .telekom-card {
+        padding: 28px 24px 28px;
+        max-width: 100%;
+    }
+
+    .telekom-card-title {
+        font-size: 22px;
+    }
+
+    .telekom-footer {
+        padding: 20px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .telekom-footer-right {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .telekom-badge-container {
+        left: 16px;
+    }
+
+    .telekom-badge {
+        width: 52px;
+        height: 60px;
+    }
+
+    .telekom-card {
+        padding: 22px 18px 24px;
+    }
+
+    .telekom-card-title {
+        font-size: 20px;
+    }
+
+    .telekom-btn-primary,
+    .telekom-btn-secondary {
+        height: 44px;
+        font-size: 14px;
+    }
+}

